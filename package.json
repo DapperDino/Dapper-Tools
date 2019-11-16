@@ -1,9 +1,9 @@
 {
   "name": "com.dapperdino.dappertools",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "displayName": "Dapper Tools",
   "description": "",
-  "unity": "2019.2",
+  "unity": "2019.3",
   "dependencies": {
   },
   "keywords": [

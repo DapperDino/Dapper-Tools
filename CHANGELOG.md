@@ -47,3 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ScriptableObject events
 - First reusable component (timer)
 - Tests for the timer component
+
+## [0.4.1] - 2019-11-16
+### Added
+- Assembly definitions for the (currently) empty editor folders so they are added to Git
