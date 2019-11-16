@@ -28,3 +28,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - ListExtensions.First and ListExtensions.Last (Use System.Linq instead)
+
+## [0.3.0] - 2019-11-16
+### Added
+- General purpose state machine to build on top of (examples to come in future versions)
+- Tests for state machine logic mentiond above
+- Moq package for Mocking in Unit Tests (check README.md)
+- A Transform extension for destroying child objects
+
+### Changed
+- README.md to explain Moq dependency
+
+### Removed
+- Component extensions (I currently see no use as they were just copies of the GameObject extensions)
