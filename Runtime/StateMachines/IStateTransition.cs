@@ -1,8 +1,8 @@
 ﻿namespace DapperDino.DapperTools.StateMachines
 {
-    public interface ITransition
+    public interface IStateTransition
     {
-        IState NextState { get; }
+        State NextState { get; }
 
         bool ShouldTransition();
     }

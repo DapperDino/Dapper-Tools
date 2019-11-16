@@ -2,11 +2,11 @@
 
 namespace DapperDino.DapperTools.StateMachines
 {
-    public abstract class Transition : MonoBehaviour, ITransition
+    public abstract class StateTransition : MonoBehaviour, IStateTransition
     {
         [SerializeField] private State nextState;
 
-        public IState NextState => nextState;
+        public State NextState => nextState;
 
         public abstract bool ShouldTransition();
     }

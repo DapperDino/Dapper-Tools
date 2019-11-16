@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace DapperDino.DapperTools.StateMachines
 {
-    public abstract class State : MonoBehaviour, IState
+    public class State : MonoBehaviour, IState
     {
-        [SerializeField] private List<Transition> transitions;
+        [SerializeField] private List<StateAction> actions;
+        [SerializeField] private List<StateTransition> transitions;
 
-        private IEnumerable<ITransition> Transitions => transitions;
+        private IEnumerable<IStateAction> Actions => actions;
+        private IEnumerable<IStateTransition> Transitions => transitions;
 
         public IState ProcessTransitions()
         {
@@ -26,8 +28,26 @@ namespace DapperDino.DapperTools.StateMachines
             return null;
         }
 
-        public virtual void Enter() { }
-        public virtual void Tick(float deltaTime) { }
-        public virtual void Exit() { }
+        public void Enter()
+        {
+            foreach(var action in Actions)
+            {
+                action.Enter();
+            }
+        }
+        public void Tick(float deltaTime)
+        {
+            foreach (var action in Actions)
+            {
+                action.Tick(deltaTime);
+            }
+        }
+        public void Exit()
+        {
+            foreach (var action in Actions)
+            {
+                action.Exit();
+            }
+        }
     }
 }

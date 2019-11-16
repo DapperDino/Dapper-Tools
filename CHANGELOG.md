@@ -51,3 +51,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.1] - 2019-11-16
 ### Added
 - Assembly definitions for the (currently) empty editor folders so they are added to Git
+
+## [0.5.0] - 2019-11-16
+### Changed
+- State now has a list of StateAction to allow multiple things to happen in a single state (examples to come in future versions)
+
+### Removed
+- Moq.meta to get rid of warnings
