@@ -66,4 +66,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tests for scripts mentioned above
 
 ### Changed
-- Stat now enables and disables the GameObject it is attatched to when entering and exiting respectively
+- States now enable and disable the GameObject they are attatched to when entering and exiting respectively
