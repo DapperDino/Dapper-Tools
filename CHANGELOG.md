@@ -58,3 +58,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - Moq.meta to get rid of warnings
+
+## [0.6.0] - 2019-11-17
+
+### Added
+- Some new scripts to handle movement and gravity as movement modifiers (more movement modifiers to come)
+- Tests for scripts mentioned above
+
+### Changed
+- Stat now enables and disables the GameObject it is attatched to when entering and exiting respectively

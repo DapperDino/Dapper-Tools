@@ -30,6 +30,8 @@ namespace DapperDino.DapperTools.StateMachines
 
         public void Enter()
         {
+            gameObject.SetActive(true);
+
             foreach(var action in Actions)
             {
                 action.Enter();
@@ -44,6 +46,8 @@ namespace DapperDino.DapperTools.StateMachines
         }
         public void Exit()
         {
+            gameObject.SetActive(false);
+
             foreach (var action in Actions)
             {
                 action.Exit();
