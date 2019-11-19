@@ -4,7 +4,7 @@ Repo for code that I usually end up writing over again and again when working on
 # Installing with Unity Package Manager
 
 Make sure you have your Api Compatibility Level as .NET 4.x (Edit/Project Settings/Player/Configuration)
-![Api Compatibility](https://github.com/DapperDino/Dapper-Tools/blob/ApiCompatibility.png)
+![Api Compatibility](https://github.com/DapperDino/Dapper-Tools/blob/master/ApiCompatibility.png)
 
 To install this project as a [Git dependency](https://docs.unity3d.com/Manual/upm-git.html) using the Unity Package Manager,
 add the following line to your project's `manifest.json`:
