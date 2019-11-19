@@ -80,3 +80,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - StateAction as there is no need. Simply use the OnEnable, Update, and OnDisable callbacks in a Monobehaviour instead of Enter, Tick, and Exit that was in a StateAction.
+
+## [0.8.0] - 2019-11-19
+
+### Added
+- Wrapper for the new Unity Input system (examples to come and I'll probably make a video about it)
