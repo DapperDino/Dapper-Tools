@@ -37,11 +37,11 @@ namespace DapperDino.DapperTools.Extensions
         }
 
         /// <summary>
-        /// Shuffel the list using the Fisher–Yates algorithm
+        /// Shuffle the list using the Fisher–Yates algorithm
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
-        public static void Shuffel<T>(this IList<T> list)
+        public static void Shuffle<T>(this IList<T> list)
         {
             // Algorithm used:
             // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle

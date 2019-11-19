@@ -5,10 +5,8 @@ namespace DapperDino.DapperTools.StateMachines
 {
     public class State : MonoBehaviour, IState
     {
-        [SerializeField] private List<StateAction> actions;
-        [SerializeField] private List<StateTransition> transitions;
+        [SerializeField] private List<StateTransition> transitions = new List<StateTransition>();
 
-        private IEnumerable<IStateAction> Actions => actions;
         private IEnumerable<IStateTransition> Transitions => transitions;
 
         public IState ProcessTransitions()
@@ -28,30 +26,8 @@ namespace DapperDino.DapperTools.StateMachines
             return null;
         }
 
-        public void Enter()
-        {
-            gameObject.SetActive(true);
+        public void Enter() => gameObject.SetActive(true);
 
-            foreach(var action in Actions)
-            {
-                action.Enter();
-            }
-        }
-        public void Tick(float deltaTime)
-        {
-            foreach (var action in Actions)
-            {
-                action.Tick(deltaTime);
-            }
-        }
-        public void Exit()
-        {
-            gameObject.SetActive(false);
-
-            foreach (var action in Actions)
-            {
-                action.Exit();
-            }
-        }
+        public void Exit() => gameObject.SetActive(false);
     }
 }

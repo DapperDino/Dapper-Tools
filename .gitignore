@@ -36,5 +36,4 @@ sysinfo.txt
 *.unitypackage
 
 # Extras
-Tests/Moq
-Tests/Moq.meta
+Runtime/Components/Inputs

@@ -4,8 +4,8 @@ namespace DapperDino.DapperTools.Components.Movements
 {
     public class GravityBehaviour : MonoBehaviour
     {
-        [SerializeField] private MovementBehaviour movementBehaviour;
-        [SerializeField] private CharacterController controller;
+        [SerializeField] private MovementBehaviour movementBehaviour = null;
+        [SerializeField] private CharacterController controller = null;
 
         private Gravity gravity;
         private Gravity Gravity

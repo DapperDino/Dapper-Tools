@@ -1,9 +1,6 @@
 {
-    "name": "DapperDino.DapperTools.Tests",
-    "references": [
-        "GUID:27619889b8ba8c24980f49ee34dbb44a",
-        "GUID:feb8e170d84f9f44fa44824cd2401839"
-    ],
+    "name": "MoqAssembly",
+    "references": [],
     "includePlatforms": [
         "Editor"
     ],
@@ -12,9 +9,7 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [
-        "UNITY_INCLUDE_TESTS"
-    ],
+    "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false
 }

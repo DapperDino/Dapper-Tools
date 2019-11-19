@@ -6,7 +6,7 @@ namespace DapperDino.DapperTools.Components.Timers
     public class TimerBehaviour : MonoBehaviour
     {
         [SerializeField] private float duration = 1f;
-        [SerializeField] private UnityEvent onTimerEnd;
+        [SerializeField] private UnityEvent onTimerEnd = null;
 
         private Timer timer;
 

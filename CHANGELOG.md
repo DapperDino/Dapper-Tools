@@ -67,3 +67,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - States now enable and disable the GameObject they are attatched to when entering and exiting respectively
+
+## [0.7.0] - 2019-11-19
+
+### Added
+- Serialized types for Vector2, Vector3, and Quaternion
+- Moq and its dependencies along with their respective licenses (there's no longer a need to install and set it up yourself)
+- Default values for all fields with the SerializeField attribute as they were causing compiler warnings without (due to the compiler not being aware that private fields can actually be set inside Unity)
+
+### Changed
+- Fixed typo "Shuffel" to "Shuffle" in ListExtensions
+
+### Removed
+- StateAction as there is no need. Simply use the OnEnable, Update, and OnDisable callbacks in a Monobehaviour instead of Enter, Tick, and Exit that was in a StateAction.

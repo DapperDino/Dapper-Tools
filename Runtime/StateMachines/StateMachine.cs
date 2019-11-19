@@ -18,11 +18,8 @@
             CurrentState?.Enter();
         }
 
-        public void Tick(float deltaTime)
+        public void Tick()
         {
-            // Perform the current state's logic
-            CurrentState?.Tick(deltaTime);
-
             // Get the next state if the conditions are met to make a transition
             IState nextState = CurrentState.ProcessTransitions();
 

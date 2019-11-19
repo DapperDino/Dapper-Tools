@@ -4,7 +4,7 @@ namespace DapperDino.DapperTools.Components.Movements
 {
     public class MovementBehaviour : MonoBehaviour
     {
-        [SerializeField] private CharacterController controller;
+        [SerializeField] private CharacterController controller = null;
 
         private Movement movement;
         public Movement Movement
