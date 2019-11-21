@@ -2,9 +2,9 @@
 {
     public class StateMachine
     {
-        public IState CurrentState { get; private set; }
-
         public StateMachine(IState startingState) => ChangeState(startingState);
+
+        public IState CurrentState { get; private set; }
 
         private void ChangeState(IState state)
         {

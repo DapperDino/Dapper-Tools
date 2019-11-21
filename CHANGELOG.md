@@ -85,3 +85,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Wrapper for the new Unity Input system (examples to come and I'll probably make a video about it)
+
+## [0.8.1] - 2019-11-21
+
+### Added
+- Comments for Components.Inputs scripts
+
+### Changed
+- Fixed possible out of bounds value in ListExtensions.Shuffle

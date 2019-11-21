@@ -19,7 +19,7 @@ namespace DapperDino.DapperTools.Components.Movements
         }
 
         private void OnEnable() => movementBehaviour.Movement.AddModifier(Gravity);
-        private void OnDisable() => movementBehaviour.Movement.RemoveModifier(Gravity);
         private void Update() => Gravity.Tick(Time.deltaTime);
+        private void OnDisable() => movementBehaviour.Movement.RemoveModifier(Gravity);
     }
 }

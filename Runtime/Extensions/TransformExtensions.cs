@@ -5,7 +5,7 @@ namespace DapperDino.DapperTools.Extensions
     public static class TransformExtensions
     {
         /// <summary>
-        /// Destroys all children of the transform
+        /// Destroy all children of this transform
         /// </summary>
         /// <param name="transform"></param>
         public static void DestroyChildren(this Transform transform)

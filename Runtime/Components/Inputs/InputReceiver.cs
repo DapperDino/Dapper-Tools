@@ -17,11 +17,13 @@ namespace DapperDino.DapperTools.Components.Inputs
 
         public InputData ProcessInput(InputData inputData)
         {
+            // Raise an event with the axis values for all of the axis responses
             foreach (var axisResponse in axisResponses)
             {
                 axisResponse.OnAction.Invoke(inputData.GetAxis(axisResponse.Axis));
             }
 
+            // Raise an event for each of the action responses that had their action triggered this frame
             foreach (var actionResponse in actionResponses)
             {
                 if (inputData.GetAction(actionResponse.Action))
@@ -30,6 +32,7 @@ namespace DapperDino.DapperTools.Components.Inputs
                 }
             }
 
+            // Return the input data to be passed onto the next input receiver
             return inputData;
         }
     }

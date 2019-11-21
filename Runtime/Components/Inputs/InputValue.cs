@@ -12,8 +12,11 @@
         {
             get
             {
+                // Make sure we only read this value once and return the default value otherwise
                 if (handled) { return default; }
                 handled = true;
+
+                // Return the actual value for this input
                 return value;
             }
         }

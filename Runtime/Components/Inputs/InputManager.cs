@@ -21,20 +21,20 @@ namespace DapperDino.DapperTools.Components.Inputs
 
         public static void AddReceiver(InputReceiver receiver)
         {
+            // Add the receiver in priority order
             int index = receivers.BinarySearch(receiver, new ByPriority());
             if (index < 0) { index = ~index; }
             receivers.Insert(index, receiver);
         }
 
-        public static void RemoveReceiver(InputReceiver receiver)
-        {
-            receivers.Remove(receiver);
-        }
+        public static void RemoveReceiver(InputReceiver receiver) => receivers.Remove(receiver);
 
         private void HandleInput()
         {
+            // Get the input data for this frame
             var inputData = GetInputData();
 
+            // Let each receiver (in priority order) process the input data
             foreach (var receiver in receivers)
             {
                 inputData = receiver.ProcessInput(inputData);
@@ -43,14 +43,17 @@ namespace DapperDino.DapperTools.Components.Inputs
 
         private InputData GetInputData()
         {
+            // Read all of the input that we care about
             FillAxisValues();
             FillActionValues();
 
+            // Return an instance of InputData with this frame's input values
             return new InputData(axisValues, actionValues);
         }
 
         private void FillAxisValues()
         {
+            // Read all the the axis values
             foreach (var axis in inputAxes)
             {
                 axisValues[axis] = new InputValue<Vector2>(axis.GetValue());
@@ -59,6 +62,7 @@ namespace DapperDino.DapperTools.Components.Inputs
 
         private void FillActionValues()
         {
+            // Read all the the action values
             foreach (var action in inputActions)
             {
                 actionValues[action] = new InputValue<bool>(action.Value);

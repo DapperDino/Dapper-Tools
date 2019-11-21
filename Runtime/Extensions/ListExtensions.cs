@@ -48,9 +48,9 @@ namespace DapperDino.DapperTools.Extensions
 
             var rng = new Random();
 
-            for (int i = list.Count; i > 1; i--)
+            for (int i = list.Count - 1; i > 1; i--)
             {
-                int k = rng.Next(i + 1);
+                int k = rng.Next(i);
                 var value = list[k];
                 list[k] = list[i];
                 list[i] = value;
