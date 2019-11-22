@@ -7,12 +7,10 @@ namespace DapperDino.DapperTools.StateMachines
     {
         [SerializeField] private List<StateTransition> transitions = new List<StateTransition>();
 
-        private IEnumerable<IStateTransition> Transitions => transitions;
-
         public IState ProcessTransitions()
         {
             // Loop over all of the possible transitions from this state
-            foreach (var transition in Transitions)
+            foreach (var transition in transitions)
             {
                 // Check to see if the particular transition conditions are met
                 if (transition.ShouldTransition())

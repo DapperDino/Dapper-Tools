@@ -93,3 +93,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Fixed possible out of bounds value in ListExtensions.Shuffle
+
+## [0.9.0] - 2019-11-22
+
+### Added
+- State transition conditions to determine whether to change state
+
+### Changed
+- State transitions are no longer MonoBehaviours
+- States now have a list of transitions that each have a list of conditions for the state change

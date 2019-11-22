@@ -6,7 +6,7 @@
 
         public IState CurrentState { get; private set; }
 
-        private void ChangeState(IState state)
+        public void ChangeState(IState state)
         {
             // Exit the current state
             CurrentState?.Exit();
