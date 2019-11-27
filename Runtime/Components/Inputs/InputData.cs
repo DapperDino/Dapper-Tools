@@ -31,8 +31,8 @@ namespace DapperDino.DapperTools.Components.Inputs
                 return axisValue;
             }
 
-            // Return zero due to not being able to find the requested axis
-            return Vector2.zero;
+            // Throw exception due to not being able to find the requested axis
+            throw new KeyNotFoundException($"Input axis {axis.name} has not been registered");
         }
 
         public bool GetAction(InputAction action)
@@ -50,8 +50,8 @@ namespace DapperDino.DapperTools.Components.Inputs
                 return actionValue;
             }
 
-            // Return false due to not being able to find the requested action
-            return false;
+            // Throw exception due to not being able to find the requested action
+            throw new KeyNotFoundException($"Input action {action.name} has not been registered");
         }
     }
 }

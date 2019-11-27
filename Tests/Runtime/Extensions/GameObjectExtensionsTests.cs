@@ -24,7 +24,7 @@ namespace DapperDino.DapperTools.Tests.Extensions
 
             _ = gameObject.GetOrAddComponent<Rigidbody>();
 
-            Assert.IsTrue(gameObject.HasComponent<Rigidbody>());
+            Assert.IsTrue(gameObject.TryGetComponent<Rigidbody>(out _));
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace DapperDino.DapperTools.Tests.Extensions
 
             _ = gameObject.AddComponent<Rigidbody>();
 
-            Assert.IsTrue(gameObject.HasComponent<Rigidbody>());
+            Assert.IsTrue(gameObject.TryGetComponent<Rigidbody>(out _));
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace DapperDino.DapperTools.Tests.Extensions
         {
             var gameObject = new GameObject();
 
-            Assert.IsFalse(gameObject.HasComponent<Rigidbody>());
+            Assert.IsFalse(gameObject.TryGetComponent<Rigidbody>(out _));
         }
     }
 }

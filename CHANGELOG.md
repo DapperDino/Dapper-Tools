@@ -102,3 +102,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - State transitions are no longer MonoBehaviours
 - States now have a list of transitions that each have a list of conditions for the state change
+
+## [0.9.1] - 2019-11-27
+
+### Changed
+- When an axis or action is missing an exception is thrown instead of just returning the default value
+- GameObjectExtensions.GetOrAddComponent to use new built in GameObject.TryGetComponent method
+
+### Removed
+- GameObjectExtensions.HasComponent due to new built in method metioned above
