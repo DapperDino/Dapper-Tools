@@ -1,4 +1,4 @@
-﻿namespace DapperDino.DapperTools.Components.Inputs
+﻿namespace DapperDino.DapperTools.Inputs
 {
     public struct InputValue<T>
     {

@@ -3,15 +3,15 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace DapperDino.DapperTools.Components.Inputs
+namespace DapperDino.DapperTools.Inputs
 {
     [Serializable]
-    public class InputAxisResponse
+    public class InputAxisVectorResponse
     {
-        [SerializeField] private InputAxis axis = null;
+        [SerializeField] private InputAxisVector axis = null;
         [SerializeField] private Vector2Event onAxis = null;
 
-        public InputAxis Axis => axis;
+        public InputAxisVector Axis => axis;
         public Vector2Event OnAction => onAxis;
 
         [Serializable]

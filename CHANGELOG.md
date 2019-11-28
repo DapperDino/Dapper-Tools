@@ -111,3 +111,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - GameObjectExtensions.HasComponent due to new built in method metioned above
+
+## [0.10.0] - 2019-11-28
+
+### Added
+- Save system (examples to come)
+- Float axis for input system to allow values from analogue buttons
+
+### Changed
+- Input system namespace from Components.Inputs to Inputs
+- Inputs.InputAxis to InputAxisVector

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DapperDino.DapperTools.Components.Inputs
+namespace DapperDino.DapperTools.Inputs
 {
     [CreateAssetMenu(fileName = "New Input Action", menuName = "Inputs/Input Action")]
     public class InputAction : ScriptableObject

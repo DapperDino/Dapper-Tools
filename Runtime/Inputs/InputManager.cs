@@ -2,17 +2,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DapperDino.DapperTools.Components.Inputs
+namespace DapperDino.DapperTools.Inputs
 {
     public class InputManager : MonoBehaviour
     {
         [SerializeField] private InputActionAsset inputAsset = null;
-        [SerializeField] private List<InputAxis> inputAxes = new List<InputAxis>();
+        [SerializeField] private List<InputAxisFloat> inputAxesFloats = new List<InputAxisFloat>();
+        [SerializeField] private List<InputAxisVector> inputAxesVectors = new List<InputAxisVector>();
         [SerializeField] private List<InputAction> inputActions = new List<InputAction>();
 
         private static readonly List<InputReceiver> receivers = new List<InputReceiver>();
 
-        private readonly Dictionary<InputAxis, InputValue<Vector2>> axisValues = new Dictionary<InputAxis, InputValue<Vector2>>();
+        private readonly Dictionary<InputAxisFloat, InputValue<float>> axisFloatValues = new Dictionary<InputAxisFloat, InputValue<float>>();
+        private readonly Dictionary<InputAxisVector, InputValue<Vector2>> axisVectorValues = new Dictionary<InputAxisVector, InputValue<Vector2>>();
         private readonly Dictionary<InputAction, InputValue<bool>> actionValues = new Dictionary<InputAction, InputValue<bool>>();
 
         private void OnEnable() => inputAsset.Enable();
@@ -44,19 +46,29 @@ namespace DapperDino.DapperTools.Components.Inputs
         private InputData GetInputData()
         {
             // Read all of the input that we care about
-            FillAxisValues();
+            FillAxisFloatValues();
+            FillAxisVectorValues();
             FillActionValues();
 
             // Return an instance of InputData with this frame's input values
-            return new InputData(axisValues, actionValues);
+            return new InputData(axisFloatValues, axisVectorValues, actionValues);
         }
 
-        private void FillAxisValues()
+        private void FillAxisFloatValues()
         {
             // Read all the the axis values
-            foreach (var axis in inputAxes)
+            foreach (var axis in inputAxesFloats)
             {
-                axisValues[axis] = new InputValue<Vector2>(axis.GetValue());
+                axisFloatValues[axis] = new InputValue<float>(axis.GetValue());
+            }
+        }
+
+        private void FillAxisVectorValues()
+        {
+            // Read all the the axis values
+            foreach (var axis in inputAxesVectors)
+            {
+                axisVectorValues[axis] = new InputValue<Vector2>(axis.GetValue());
             }
         }
 

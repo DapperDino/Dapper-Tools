@@ -1,9 +1,8 @@
-﻿using DapperDino.DapperTools.Components.Inputs;
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Dapper_Tools.Runtime.Components.Inputs
+namespace DapperDino.DapperTools.Inputs
 {
     [Serializable]
     public class InputActionResponse
