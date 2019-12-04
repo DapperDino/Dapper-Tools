@@ -121,3 +121,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Input system namespace from Components.Inputs to Inputs
 - Inputs.InputAxis to InputAxisVector
+
+## [0.11.0] - 2019-12-04
+
+### Added
+- More extensions to easily manipulate vectors
+- Tests for extensions mentioned above
