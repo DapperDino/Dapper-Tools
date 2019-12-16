@@ -2,18 +2,19 @@
 
 namespace DapperDino.DapperTools.Extensions
 {
-    public static class TransformExtensions
+    public static class Vector3Extensions
     {
         /// <summary>
-        /// Destroy all children of this transform
+        /// Return a copy of this vector with an altered x and/or y and/or z component
         /// </summary>
-        /// <param name="transform"></param>
-        public static void DestroyChildren(this Transform transform)
+        /// <param name="v"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <returns></returns>
+        public static Vector3 With(this Vector3 original, float? x = null, float? y = null, float? z = null)
         {
-            foreach (Transform child in transform)
-            {
-                Object.Destroy(child.gameObject);
-            }
+            return new Vector3(x ?? original.x, y ?? original.y, z ?? original.z);
         }
 
         /// <summary>
@@ -22,9 +23,10 @@ namespace DapperDino.DapperTools.Extensions
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public static Vector3 DirectionTo(this Transform source, Vector3 destination)
+        public static Vector3 DirectionTo(this Vector3 source, Vector3 destination)
         {
-            return source.position.DirectionTo(destination);
+            Debug.LogWarning("Change function call DirectionTo");
+            return (destination - source);
         }
 
         /// <summary>
@@ -33,9 +35,9 @@ namespace DapperDino.DapperTools.Extensions
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public static Vector3 NormalDirectionTo(this Transform source, Vector3 destination)
+        public static Vector3 NormalDirectionTo(this Vector3 source, Vector3 destination)
         {
-            return source.position.NormalDirectionTo(destination);
+            return Vector3.Normalize(destination - source);
         }
 
         /// <summary>
@@ -44,18 +46,19 @@ namespace DapperDino.DapperTools.Extensions
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public static Vector3 DirectionTo(this Transform source, Transform destination)
+        public static Vector3 DirectionTo(this Vector3 source, Transform destination)
         {
             return source.DirectionTo(destination.position);
         }
 
+
         /// <summary>
         /// Return a normalized Vector3, the direction from source to destination
         /// </summary>
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public static Vector3 NormalDirectionTo(this Transform source, Transform destination)
+        public static Vector3 NormalDirectionTo(this Vector3 source, Transform destination)
         {
             return source.NormalDirectionTo(destination.position);
         }
@@ -66,7 +69,7 @@ namespace DapperDino.DapperTools.Extensions
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public static Vector3 DirectionTo(this Transform source, GameObject destination)
+        public static Vector3 DirectionTo(this Vector3 source, GameObject destination)
         {
             return source.DirectionTo(destination.transform.position);
         }
@@ -77,7 +80,7 @@ namespace DapperDino.DapperTools.Extensions
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public static Vector3 NormalDirectionTo(this Transform source, GameObject destination)
+        public static Vector3 NormalDirectionTo(this Vector3 source, GameObject destination)
         {
             return source.NormalDirectionTo(destination.transform.position);
         }
@@ -88,9 +91,9 @@ namespace DapperDino.DapperTools.Extensions
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public static float DistanceTo(this Transform source, Vector3 destination)
+        public static float DistanceTo(this Vector3 source, Vector3 destination)
         {
-            return source.position.DistanceTo(destination);
+            return Vector3.Magnitude(destination - source);
         }
 
         /// <summary>
@@ -99,9 +102,9 @@ namespace DapperDino.DapperTools.Extensions
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public static float DistanceTo(this Transform source, Transform destination)
+        public static float DistanceTo(this Vector3 source, Transform destination)
         {
-            return source.position.DistanceTo(destination.position);
+            return Vector3.Magnitude(destination.position - source);
         }
 
         /// <summary>
@@ -110,9 +113,9 @@ namespace DapperDino.DapperTools.Extensions
         /// <param name="source"></param>
         /// <param name="destination"></param>
         /// <returns></returns>
-        public static float DistanceTo(this Transform source, GameObject destination)
+        public static float DistanceTo(this Vector3 source, GameObject destination)
         {
-            return source.DistanceTo(destination.transform);
+            return Vector3.Magnitude(destination.transform.position - source);
         }
     }
 }

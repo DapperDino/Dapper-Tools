@@ -12,10 +12,10 @@ namespace DapperDino.DapperTools.Extensions
         /// <param name="y"></param>
         /// <param name="z"></param>
         /// <returns></returns>
-        public static Vector3 With(this Vector3 original, float? x = null, float? y = null, float? z = null)
-        {
-            return new Vector3(x ?? original.x, y ?? original.y, z ?? original.z);
-        }
+        //public static Vector3 With(this Vector3 original, float? x = null, float? y = null, float? z = null)
+        //{
+        //    return new Vector3(x ?? original.x, y ?? original.y, z ?? original.z);
+        //}
 
         /// <summary>
         /// Return a copy of this vector with an altered x and/or y component
@@ -24,10 +24,10 @@ namespace DapperDino.DapperTools.Extensions
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public static Vector2 With(this Vector2 original, float? x = null, float? y = null)
-        {
-            return new Vector2(x ?? original.x, y ?? original.y);
-        }
+        //public static Vector2 With(this Vector2 original, float? x = null, float? y = null)
+        //{
+        //    return new Vector2(x ?? original.x, y ?? original.y);
+        //}
 
         /// <summary>
         /// Return this vector with only its x and y components
