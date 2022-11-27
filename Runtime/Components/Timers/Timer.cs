@@ -4,34 +4,38 @@ namespace DapperDino.DapperTools.Components.Timers
 {
     public class Timer
     {
-        public float RemainingSeconds { get; private set; }
-
-        public Timer(float duration) => RemainingSeconds = duration;
-
+        public float RemainingSeconds { get; private set;}
+        public bool IsRepetitive { get; private set; }
+        private float initialVal;
         public event Action OnTimerEnd;
-
+        public Timer(float duration, bool isRepetitive)
+        {
+            RemainingSeconds = duration;
+            IsRepetitive = isRepetitive;
+            initialVal = duration;
+        }
         public void Tick(float deltaTime)
         {
-            // Stop ticking if the timer has already ended
-            if (RemainingSeconds == 0f) { return; }
+            if (RemainingSeconds == 0) { return; }
 
-            // Tick the timer down by the time it took to complete last frame
             RemainingSeconds -= deltaTime;
-
-            // Check to see if the timer has finished ticking
             CheckForTimerEnd();
-        }
+    }
+    private void CheckForTimerEnd()
+    {
+        if (RemainingSeconds > 0) { return; }
 
-        private void CheckForTimerEnd()
+        if(IsRepetitive)
         {
-            // Leave if there is still time left to tick
-            if (RemainingSeconds > 0f) { return; }
-
-            // Set to zero due to duration possibly going below zero with the deltaTime subtraction
+            RemainingSeconds = initialVal;
+            OnTimerEnd?.Invoke();
+        }
+        else
+        {
             RemainingSeconds = 0f;
-
-            // Alert any listeners that the timer has ended
             OnTimerEnd?.Invoke();
         }
     }
+    
+}
 }
