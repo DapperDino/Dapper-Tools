@@ -3,32 +3,25 @@ using UnityEngine.Events;
 
 namespace DapperDino.DapperTools.Components.Timers
 {
-    public class TimerBehaviour : MonoBehaviour
+    public class TimerComponent : MonoBehaviour
     {
-        [SerializeField] private float duration = 1f;
-        [SerializeField] private UnityEvent onTimerEnd = null;
-
-        private Timer timer;
+        [SerializeField] private float _duration = 1f;
+        [SerializeField] private bool _isRepetitive = false;
+        [SerializeField] private UnityEvent _onTimerEnd = null;
+        private Timer _timer;
 
         private void Start()
         {
-            // Create a new timer and initialise it
-            timer = new Timer(duration);
-
-            // Subscribe to the OnTimerEnd event to be able to handle that scenario
-            timer.OnTimerEnd += HandleTimerEnd;
+            _timer = new Timer(_duration, _isRepetitive);
+            _timer.OnTimerEnd += HandlerTimerEnd;
         }
-
-        private void HandleTimerEnd()
+        private void HandlerTimerEnd()
         {
-            // Alert any listeners that the timer has ended
-            onTimerEnd.Invoke();
-
-            // Remove this component
-            // (Subject to change if I end up deciding that there is a better way to handle the timer ending)
-            Destroy(this);
+            _onTimerEnd?.Invoke();
         }
-
-        private void Update() => timer.Tick(Time.deltaTime);
+        private void Update()
+        {
+            _timer.Tick(Time.deltaTime);
+        }
     }
 }
